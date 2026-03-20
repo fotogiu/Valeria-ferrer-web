@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -6,25 +5,29 @@ import { motion } from 'framer-motion';
 const Hero: React.FC = () => {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
-      {/* Background Media - Video */}
+      
+      {/* Background Media - Video LOCAL */}
       <div className="absolute inset-0 z-0">
+        
+        {/* Overlay oscuro */}
         <div className="absolute inset-0 bg-black/40 z-10"></div>
+
+        {/* VIDEO */}
         <video 
           autoPlay 
           loop 
           muted 
           playsInline
           preload="auto"
-          poster="https://www.valeriaferrer.com/wp-content/uploads/2026/01/Yaiza_ValeriaFerrer_01-scaled.jpg"
+          onLoadedData={(e) => e.currentTarget.play()}
           className="w-full h-full object-cover"
-          style={{ objectFit: 'cover' }}
         >
           <source 
-            src="https://v.pexels.com/video-files/3195394/3195394-hd_1280_720_25fps.mp4" 
+            src="/video/escortbanner.mp4" 
             type="video/mp4" 
           />
-          Your browser does not support the video tag.
         </video>
+
       </div>
 
       {/* Content */}
@@ -37,8 +40,11 @@ const Hero: React.FC = () => {
         >
           Valeria <span className="luxury-text-gradient font-bold italic uppercase">Ferrer</span>
           <br />
-          <span className="text-2xl md:text-4xl tracking-[0.4em] font-light">Escorts de Lujo</span>
+          <span className="text-2xl md:text-4xl tracking-[0.4em] font-light">
+            Escorts de Lujo
+          </span>
         </motion.h1>
+
         <motion.p 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -47,6 +53,7 @@ const Hero: React.FC = () => {
         >
           Escorts de Lujo en Valencia
         </motion.p>
+
         <motion.div 
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -59,6 +66,7 @@ const Hero: React.FC = () => {
           >
             Conoce a nuestras Escorts
           </Link>
+
           <Link 
             to="/models/ariel" 
             className="px-12 py-5 luxury-gradient text-black uppercase tracking-[0.3em] text-xs font-bold hover:scale-105 hover:shadow-[0_0_30px_rgba(194,178,163,0.3)] transition-all duration-300 w-full sm:w-auto"
@@ -68,10 +76,12 @@ const Hero: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Decorative scroll indicator */}
+      {/* Scroll indicator */}
       <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center space-y-3 opacity-60">
         <div className="w-[1px] h-24 bg-gradient-to-b from-[#c2b2a3] to-transparent"></div>
-        <span className="text-[9px] tracking-[0.6em] uppercase text-[#c2b2a3] font-bold">Descubrir más</span>
+        <span className="text-[9px] tracking-[0.6em] uppercase text-[#c2b2a3] font-bold">
+          Descubrir más
+        </span>
       </div>
     </section>
   );
